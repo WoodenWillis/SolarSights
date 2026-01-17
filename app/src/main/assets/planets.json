@@ -1,0 +1,1112 @@
+[
+  {
+    "name": "mercury",
+    "diameter": 4879,
+    "rotation_period": 1407.6,
+    "perihelion": 46,
+    "aphelion": 69.8,
+    "obliquity": 0.03,
+    "right_ascension": 281.01,
+    "declination": 61.42,
+    "moon_scale": 1,
+    "moon_orbit_scale": 1,
+    "longitude_of_the_ascending_node": {
+      "value": 48.3313,
+      "variation": 3.24587e-5
+    },
+    "inclination_to_the_ecliptic": {
+      "value": 7.0047,
+      "variation": 5.0e-8
+    },
+    "argument_of_perihelion": {
+      "value": 29.1241,
+      "variation": 1.01444e-5
+    },
+    "eccentricity": {
+      "value": 0.205635,
+      "variation": 5.59e-10
+    },
+    "mean_anomaly": {
+      "value": 168.6562,
+      "variation": 4.0923344368
+    },
+    "orbital_period": 88,
+    "orbital_inclination": 7,
+    "camera_offset": 0,
+    "moons": [],
+    "ring_system": false,
+    "color_dark": "#9fbcba",
+    "color_light": "#d3e4e8",
+    "darkmode_color_dark": "#4c4c4c",
+    "darkmode_color_light": "#4c4c4c"
+  },
+  {
+    "name": "venus",
+    "diameter": 12104,
+    "rotation_period": -5832.5,
+    "perihelion": 107.5,
+    "aphelion": 108.9,
+    "obliquity": 2.64,
+    "right_ascension": 272.76,
+    "declination": 67.16,
+    "moon_scale": 1,
+    "moon_orbit_scale": 1,
+    "longitude_of_the_ascending_node": {
+      "value": 76.6799,
+      "variation": 2.4659e-5
+    },
+    "inclination_to_the_ecliptic": {
+      "value": 3.3946,
+      "variation": 2.75e-8
+    },
+    "argument_of_perihelion": {
+      "value": 54.891,
+      "variation": 1.38374e-5
+    },
+    "eccentricity": {
+      "value": 0.006773,
+      "variation": -1.302e-9
+    },
+    "mean_anomaly": {
+      "value": 48.0052,
+      "variation": 1.6021302244
+    },
+    "orbital_period": 224.7,
+    "orbital_inclination": 3.4,
+    "camera_offset": 0,
+    "moons": [],
+    "ring_system": false,
+    "color_dark": "#fbdb85",
+    "color_light": "#ffeac1",
+    "darkmode_color_dark": "#949494",
+    "darkmode_color_light": "#949494"
+  },
+  {
+    "name": "earth",
+    "diameter": 12756,
+    "rotation_period": 23.9,
+    "perihelion": 147.1,
+    "aphelion": 152.1,
+    "obliquity": 23.44,
+    "right_ascension": 0.0,
+    "declination": 90.00,
+    "moon_orbit_scale": 0.07,
+    "longitude_of_the_ascending_node": {
+      "value": 0,
+      "variation": 0
+    },
+    "inclination_to_the_ecliptic": {
+      "value": 0,
+      "variation": 0
+    },
+    "argument_of_perihelion": {
+      "value": 282.9404,
+      "variation": 4.70935e-5
+    },
+    "eccentricity": {
+      "value": 0.016709,
+      "variation": -1.151e-9
+    },
+    "mean_anomaly": {
+      "value": 356.047,
+      "variation": 0.9856002585
+    },
+    "orbital_period": 365.2,
+    "orbital_inclination": 0,
+    "camera_offset": 2,
+    "moons": [
+      {
+        "name": "moon",
+        "diameter": 3475,
+        "rotation_period": 655.7,
+        "perihelion": 0.3626,
+        "aphelion": 0.4054,
+        "longitude_of_the_ascending_node": {
+          "value": 125.1228,
+          "variation": -0.0529538083
+        },
+        "inclination_to_the_ecliptic": {
+          "value": 5.1454,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 318.0634,
+          "variation": 0.1643573223
+        },
+        "eccentricity": {
+          "value": 0.054900,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 115.3654,
+          "variation": 13.0649929509
+        },
+        "orbital_period": 27.3,
+        "orbital_inclination": 5.1454,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      }
+    ],
+    "ring_system": false,
+    "color_dark": "#256ed9",
+    "color_light": "#5982ef",
+    "darkmode_color_dark": "#bfbfbf",
+    "darkmode_color_light": "#bfbfbf"
+  },
+  {
+    "name": "mars",
+    "diameter": 6792,
+    "rotation_period": 24.6,
+    "perihelion": 206.6,
+    "aphelion": 249.2,
+    "obliquity": 25.19,
+    "right_ascension": 317.68,
+    "declination": 52.89,
+    "moon_scale": 30,
+    "moon_orbit_scale": 1,
+    "longitude_of_the_ascending_node": {
+      "value": 49.5574,
+      "variation": 2.11081e-5
+    },
+    "inclination_to_the_ecliptic": {
+      "value": 1.8497,
+      "variation": -1.78e-8
+    },
+    "argument_of_perihelion": {
+      "value": 286.5016,
+      "variation": 2.92961e-5
+    },
+    "eccentricity": {
+      "value": 0.093405,
+      "variation": 2.516e-9
+    },
+    "mean_anomaly": {
+      "value": 18.6021,
+      "variation": 0.5240207766
+    },
+    "orbital_period": 687,
+    "orbital_inclination": 1.9,
+    "camera_offset": 0,
+    "moons": [
+      {
+        "name": "phobos",
+        "diameter": 22,
+        "rotation_period": 0.31891,
+        "perihelion": 0.00923442,
+        "aphelion": 0.00951758,
+        "eccentricity": {
+          "value": 0.0151,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 150.247,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 20609246.065954022,
+          "variation": 1128.526645768025
+        },
+        "inclination_to_the_equator": {
+          "value": 1.075,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 164.931,
+          "variation": 0
+        },
+        "orbital_period": 0.31891,
+        "orbital_inclination": 1.075,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "deimos",
+        "diameter": 12.4,
+        "rotation_period": 1.26244,
+        "perihelion": 0.0234555,
+        "aphelion": 0.0234709,
+        "eccentricity": {
+          "value": 0.0002,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 290.496,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 5207925.896228363,
+          "variation": 285.1620671081398
+        },
+        "inclination_to_the_equator": {
+          "value": 1.793,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 339.6,
+          "variation": 0
+        },
+        "orbital_period": 1.26244,
+        "orbital_inclination": 1.793,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      }
+    ],
+    "ring_system": false,
+    "color_dark": "#d44b18",
+    "color_light": "#f38f5b",
+    "darkmode_color_dark": "#3d3d3d",
+    "darkmode_color_light": "#3d3d3d"
+  },
+  {
+    "name": "jupiter",
+    "diameter": 142984,
+    "rotation_period": 9.9,
+    "perihelion": 740.5,
+    "aphelion": 816.6,
+    "obliquity": 3.13,
+    "right_ascension": 268.05,
+    "declination": 64.49,
+    "moon_orbit_scale": 0.19,
+    "longitude_of_the_ascending_node": {
+      "value": 100.4542,
+      "variation": 2.76854e-5
+    },
+    "inclination_to_the_ecliptic": {
+      "value": 1.3030,
+      "variation": -1.557e-7
+    },
+    "argument_of_perihelion": {
+      "value": 273.8777,
+      "variation": 1.64505e-5
+    },
+    "eccentricity": {
+      "value": 0.048498,
+      "variation": 4.469e-9
+    },
+    "mean_anomaly": {
+      "value": 19.8950,
+      "variation": 0.0830853001
+    },
+    "orbital_period": 4331,
+    "orbital_inclination": 1.3,
+    "camera_offset": 3,
+    "moons": [
+      {
+        "name": "io",
+        "diameter": 3643,
+        "rotation_period": 1.769138,
+        "perihelion": 0.42,
+        "aphelion": 0.423,
+        "eccentricity": {
+          "value": 0.0041,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 84.129,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 223162.3625071822,
+          "variation": 203.48893076741328
+        },
+        "inclination_to_the_equator": {
+          "value": 0.036,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 43.977,
+          "variation": 0
+        },
+        "orbital_period": 1.769138,
+        "orbital_inclination": 0.036,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "europa",
+        "diameter": 3121.6,
+        "rotation_period": 3.551181,
+        "perihelion": 0.664862,
+        "aphelion": 0.676938,
+        "eccentricity": {
+          "value": 0.0094,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 88.97,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 111176.32193437318,
+          "variation": 101.37472576024707
+        },
+        "inclination_to_the_equator": {
+          "value": 0.466,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 219.106,
+          "variation": 0
+        },
+        "orbital_period": 3.551181,
+        "orbital_inclination": 0.466,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "ganymede",
+        "diameter": 5262.4,
+        "rotation_period": 7.154553,
+        "perihelion": 1.0692,
+        "aphelion": 1.0716,
+        "eccentricity": {
+          "value": 0.0013,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 192.417,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 55415.31247206546,
+          "variation": 50.31760894076821
+        },
+        "inclination_to_the_equator": {
+          "value": 0.177,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 63.552,
+          "variation": 0
+        },
+        "orbital_period": 7.154553,
+        "orbital_inclination": 0.177,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "callisto",
+        "diameter": 4820.6,
+        "rotation_period": 16.689017,
+        "perihelion": 1.869000,
+        "aphelion": 1.897000,
+        "eccentricity": {
+          "value": 0.0074,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 52.643,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 23801.7286775,
+          "variation": 21.57107276
+        },
+        "inclination_to_the_equator": {
+          "value": 0.192,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 298.848,
+          "variation": 0
+        },
+        "orbital_period": 16.689017,
+        "orbital_inclination": 0.192,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      }
+    ],
+    "ring_system": true,
+    "color_dark": "#d9903d",
+    "color_light": "#fac17b",
+    "darkmode_color_dark": "#1c1c1c",
+    "darkmode_color_light": "#1c1c1c"
+  },
+  {
+    "name": "saturn",
+    "diameter": 120536,
+    "rotation_period": 10.7,
+    "perihelion": 1352.6,
+    "aphelion": 1514.5,
+    "obliquity": 26.73,
+    "right_ascension": 40.60,
+    "declination": 83.54,
+    "moon_orbit_scale": 0.367,
+    "moon_scale": 6,
+    "longitude_of_the_ascending_node": {
+      "value": 113.6634,
+      "variation": 2.3898e-5
+    },
+    "inclination_to_the_ecliptic": {
+      "value": 2.4886,
+      "variation": -1.081e-7
+    },
+    "argument_of_perihelion": {
+      "value": 339.3939,
+      "variation": 2.97661e-5
+    },
+    "eccentricity": {
+      "value": 0.055546,
+      "variation": -9.499e-9
+    },
+    "mean_anomaly": {
+      "value": 316.967,
+      "variation": 0.0334442282
+    },
+    "orbital_period": 10747,
+    "orbital_inclination": 2.5,
+    "camera_offset": -2,
+    "moons": [
+      
+      {
+        "name": "enceladus",
+        "diameter": 504,
+        "rotation_period": 1.370218,
+        "perihelion": 0.23802,
+        "aphelion": 0.23802,
+        "eccentricity": {
+          "value": 0.0047,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 211.923,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": -383715.364800486,
+          "variation": 262.77372262774
+        },
+        "inclination_to_the_equator": {
+          "value": 0.009,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 93.204,
+          "variation": 0
+        },
+        "orbital_period": 1.370218,
+        "orbital_inclination": 0.009,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "tethys",
+        "diameter": 1061.32,
+        "rotation_period": 1.887802,
+        "perihelion": 0.29466,
+        "aphelion": 0.29466,
+        "eccentricity": {
+          "value": 0.0001,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 262.845,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": -278391.507681497,
+          "variation": 190.67796610169492
+        },
+        "inclination_to_the_equator": {
+          "value": 1.091,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 330.882,
+          "variation": 0
+        },
+        "orbital_period": 1.887802,
+        "orbital_inclination": 1.091,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "dione",
+        "diameter": 1122.66,
+        "rotation_period": 2.736915,
+        "perihelion": 0.3774,
+        "aphelion": 0.3774,
+        "eccentricity": {
+          "value": 0.0022,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 168.82,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": -192100.61729509194,
+          "variation": 131.53087321885275
+        },
+        "inclination_to_the_equator": {
+          "value": 0.028,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 168.909,
+          "variation": 0
+        },
+        "orbital_period": 2.736915,
+        "orbital_inclination": 0.028,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "rhea",
+        "diameter": 1526.66,
+        "rotation_period": 4.5175,
+        "perihelion": 0.52704,
+        "aphelion": 0.52704,
+        "eccentricity": {
+          "value": 0.001,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 256.609,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": -116102.79255171905,
+          "variation": 79.6812749003984
+        },
+        "inclination_to_the_equator": {
+          "value": 0.331,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 311.531,
+          "variation": 0
+        },
+        "orbital_period": 4.5175,
+        "orbital_inclination": 0.331,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "titan",
+        "diameter": 5150,
+        "rotation_period": 15.945421,
+        "perihelion": 1.18668,
+        "aphelion": 1.25706,
+        "eccentricity": {
+          "value": 0.0288,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 185.671,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": -32960.39485057471,
+          "variation": 22.570532915360502
+        },
+        "inclination_to_the_equator": {
+          "value": 0.28,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 24.502,
+          "variation": 0
+        },
+        "orbital_period": 15.945421,
+        "orbital_inclination": 0.28,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "hyperion",
+        "diameter": 277.32,
+        "rotation_period": 13,
+        "perihelion": 1.4811,
+        "aphelion": 1.4811,
+        "eccentricity": {
+          "value": 0.0274,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 324.183,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": -24420.25960933584,
+          "variation": 16.917293233082706
+        },
+        "inclination_to_the_equator": {
+          "value": 0.63,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 264.022,
+          "variation": 0
+        },
+        "orbital_period": 21.276609,
+        "orbital_inclination": 0.63,
+        "ring_system": false,
+        "color_dark": "#1c1c1c",
+        "color_light": "#1c1c1c"
+      },
+      {
+        "name": "iapetus",
+        "diameter": 1471.2,
+        "rotation_period": 79.33,
+        "perihelion": 3.56084,
+        "aphelion": 3.56084,
+        "eccentricity": {
+          "value": 0.0283,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 275.921,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": -6273.997524223707,
+          "variation": 4.538005798562965
+        },
+        "inclination_to_the_equator": {
+          "value": 7.489,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 75.831,
+          "variation": 0
+        },
+        "orbital_period": 79.33,
+        "orbital_inclination": 7.489,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      }
+    ],
+    "ring_system": true,
+    "color_dark": "#fba674",
+    "color_light": "#fcbb94",
+    "darkmode_color_dark": "#262626",
+    "darkmode_color_light": "#262626"
+  },
+  {
+    "name": "uranus",
+    "diameter": 51118,
+    "rotation_period": -17.2,
+    "perihelion": 2741.3,
+    "aphelion": 3003.6,
+    "obliquity": 82.23,
+    "right_ascension": 257.43,
+    "declination": -15.10,
+    "moon_scale": 4,
+    "moon_orbit_scale": 1,
+    "longitude_of_the_ascending_node": {
+      "value": 74.0005,
+      "variation": 1.3978e-5
+    },
+    "inclination_to_the_ecliptic": {
+      "value": 0.7733,
+      "variation": 1.9e-8
+    },
+    "argument_of_perihelion": {
+      "value": 96.6612,
+      "variation": 3.0565e-5
+    },
+    "eccentricity": {
+      "value": 0.047318,
+      "variation": 7.45e-9
+    },
+    "mean_anomaly": {
+      "value": 142.5905,
+      "variation": 0.011725806
+    },
+    "orbital_period": 30589,
+    "orbital_inclination": 0.8,
+    "camera_offset": 0,
+    "moons": [
+      {
+        "name": "miranda",
+        "diameter": 471.6,
+        "rotation_period": 1.413,
+        "perihelion": 0.1299,
+        "aphelion": 0.1299,
+        "eccentricity": {
+          "value": 0.0013,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 68.312,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 1861457.823866478,
+          "variation": 254.77707006369425
+        },
+        "inclination_to_the_equator": {
+          "value": 4.338,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 326.438,
+          "variation": 0
+        },
+        "orbital_period": 1.413,
+        "orbital_inclination": 4.338,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "ariel",
+        "diameter": 1157.8,
+        "rotation_period": 2.52,
+        "perihelion": 0.1909,
+        "aphelion": 0.1909,
+        "eccentricity": {
+          "value": 0.0012,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 115.349,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 1043610.9079179895,
+          "variation": 142.85714285714286
+        },
+        "inclination_to_the_equator": {
+          "value": 0.041,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 22.394,
+          "variation": 0
+        },
+        "orbital_period": 2.52,
+        "orbital_inclination": 0.041,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "umbriel",
+        "diameter": 1169.4,
+        "rotation_period": 4.144,
+        "perihelion": 0.266,
+        "aphelion": 0.266,
+        "eccentricity": {
+          "value": 0.0039,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 84.709,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 634616.7150987773,
+          "variation": 86.87258687258687
+        },
+        "inclination_to_the_equator": {
+          "value": 0.128,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 33.485,
+          "variation": 0
+        },
+        "orbital_period": 4.144,
+        "orbital_inclination": 0.128,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "titania",
+        "diameter": 1577.8,
+        "rotation_period": 8.706,
+        "perihelion": 0.4363,
+        "aphelion": 0.4363,
+        "eccentricity": {
+          "value": 0.0011,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 284.4,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 302092.1531492458,
+          "variation": 41.35079255685734
+        },
+        "inclination_to_the_equator": {
+          "value": 0.079,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 99.771,
+          "variation": 0
+        },
+        "orbital_period": 8.706,
+        "orbital_inclination": 0.079,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "oberon",
+        "diameter": 1522.8,
+        "rotation_period": 13.46,
+        "perihelion": 0.5835,
+        "aphelion": 0.5835,
+        "eccentricity": {
+          "value": 0.0014,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 104.4,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 195661.98813620603,
+          "variation": 26.745913818722137
+        },
+        "inclination_to_the_equator": {
+          "value": 0.068,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 279.771,
+          "variation": 0
+        },
+        "orbital_period": 13.46,
+        "orbital_inclination": 0.068,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      }
+    ],
+    "ring_system": true,
+    "color_dark": "#4ce5d5",
+    "color_light": "#a5e6f2",
+    "darkmode_color_dark": "#777777",
+    "darkmode_color_light": "#777777"
+  },
+  {
+    "name": "neptune",
+    "diameter": 49528,
+    "rotation_period": 16.1,
+    "perihelion": 4444.5,
+    "aphelion": 4545.7,
+    "obliquity": 28.32,
+    "right_ascension": 299.36,
+    "declination": 43.46,
+    "moon_orbit_scale": 0.1,
+    "longitude_of_the_ascending_node": {
+      "value": 131.7806,
+      "variation": 3.0173e-5
+    },
+    "inclination_to_the_ecliptic": {
+      "value": 1.77,
+      "variation": -2.55e-7
+    },
+    "argument_of_perihelion": {
+      "value": 272.8461,
+      "variation": -6.027e-6
+    },
+    "eccentricity": {
+      "value": 0.008606,
+      "variation": 2.15e-9
+    },
+    "mean_anomaly": {
+      "value": 260.2471,
+      "variation": 0.005995147
+    },
+    "orbital_period": 59800,
+    "orbital_inclination": 1.8,
+    "camera_offset": 0,
+    "moons": [
+      {
+        "name": "proteus",
+        "diameter": 416,
+        "rotation_period": 1.122,
+        "perihelion": 0.117647,
+        "aphelion": 0.117647,
+        "eccentricity": {
+          "value": 0.0005,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 301.706,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 1220972.5962715389,
+          "variation": 320.855614973262
+        },
+        "inclination_to_the_equator": {
+          "value": 0.026,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 162.69,
+          "variation": 0
+        },
+        "orbital_period": 1.122,
+        "orbital_inclination": 0.026,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "triton",
+        "diameter": 2705.2,
+        "rotation_period": 5.877,
+        "perihelion": 0.3548,
+        "aphelion": 0.3548,
+        "eccentricity": {
+          "value": 0,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 344.046,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 233342.8583475129,
+          "variation": 61.25574272588055
+        },
+        "inclination_to_the_equator": {
+          "value": 156.834,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 172.431,
+          "variation": 0
+        },
+        "orbital_period": 5.877,
+        "orbital_inclination": 156.834,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      },
+      {
+        "name": "nereid",
+        "diameter": 340,
+        "rotation_period": 360.14,
+        "perihelion": 5.5134,
+        "aphelion": 5.5134,
+        "eccentricity": {
+          "value": 0.7512,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 280.83,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 4162.861563762241,
+          "variation": 0.9996112622868885
+        },
+        "inclination_to_the_equator": {
+          "value": 7.232,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 334.762,
+          "variation": 0
+        },
+        "orbital_period": 360.14,
+        "orbital_inclination": 7.232,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      }
+    ],
+    "ring_system": true,
+    "color_dark": "#87aee8",
+    "color_light": "#b1bfeb",
+    "darkmode_color_dark": "#646464",
+    "darkmode_color_light": "#646464"
+  },
+  {
+    "name": "pluto",
+    "diameter": 2370,
+    "rotation_period": -153.3,
+    "perihelion": 4436.8,
+    "aphelion": 7375.9,
+    "obliquity": 57.47,
+    "right_ascension": 312.99,
+    "declination": 6.16,
+    "moon_scale": 1,
+    "moon_orbit_scale": 1,
+    "longitude_of_the_ascending_node": {
+      "value": 0,
+      "variation": 0
+    },
+    "inclination_to_the_ecliptic": {
+      "value": 0,
+      "variation": 0
+    },
+    "argument_of_perihelion": {
+      "value": 0,
+      "variation": 0
+    },
+    "eccentricity": {
+      "value": 0,
+      "variation": 0
+    },
+    "mean_anomaly": {
+      "value": 0,
+      "variation": 0
+    },
+    "orbital_period": 90560,
+    "orbital_inclination": 17.2,
+    "camera_offset": 0,
+    "moons": [
+      {
+        "name": "charon",
+        "diameter": 1210,
+        "rotation_period": 6.387,
+        "perihelion": 0.17536,
+        "aphelion": 0.17536,
+        "eccentricity": {
+          "value": 0.0022,
+          "variation": 0
+        },
+        "argument_of_perihelion": {
+          "value": 71.255,
+          "variation": 0
+        },
+        "mean_anomaly": {
+          "value": 147.84702144982,
+          "variation": 56.364490371066
+        },
+        "inclination_to_the_equator": {
+          "value": 0.001,
+          "variation": 0
+        },
+        "longitude_of_the_ascending_node": {
+          "value": 85.187,
+          "variation": 0
+        },
+        "orbital_period": 6.387,
+        "orbital_inclination": 0.001,
+        "ring_system": false,
+        "color_dark": "#808080",
+        "color_light": "#c0c0c0"
+      }
+    ],
+    "ring_system": false,
+    "color_dark": "#ccd3de",
+    "color_light": "#dce2f3",
+    "darkmode_color_dark": "#9f9f9f",
+    "darkmode_color_light": "#9f9f9f"
+  }
+]
