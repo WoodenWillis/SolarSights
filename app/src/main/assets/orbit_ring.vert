@@ -4,6 +4,7 @@ layout(location = 0) in vec4 a_Position;    // Standard Quad
 layout(location = 1) in vec4 a_OrbitParams; // We only need .x (Radius)
 
 uniform float u_Aspect;
+uniform vec2 u_Center;
 
 out float v_Radius;
 out vec2 v_UV;
@@ -24,4 +25,14 @@ void main() {
     // Correct UVs again for the fragment math
     v_UV = a_Position.xy * size;
     v_UV.x *= u_Aspect;
+    float tilt = radians(35.0);
+    float tiltSin = sin(tilt);
+
+    // When drawing the quad:
+    gl_Position = vec4(a_Position.x * size, a_Position.y * size * tiltSin, 0.0, 1.0);
+
+    // And for v_UV used in fragment math:
+    v_UV = vec2(a_Position.x * size, a_Position.y * size * tiltSin);
+    v_UV.x *= u_Aspect;
+
 }

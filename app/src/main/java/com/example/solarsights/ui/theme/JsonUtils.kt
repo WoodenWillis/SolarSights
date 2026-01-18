@@ -21,8 +21,10 @@ object JsonUtils {
 
             for (i in 0 until jsonArray.length()) {
                 val planet = jsonArray.getJSONObject(i)
+                // 1. Define offset at the start of the loop
+                val offset = i * FLOATS_PER_PLANET
 
-                // Radius Math: Use aphelion/perihelion if available, else look for 'distance'
+                // Radius Math
                 val dist = if (planet.has("perihelion")) {
                     (planet.optDouble("perihelion") + planet.optDouble("aphelion")) / 2.0
                 } else {
@@ -30,13 +32,15 @@ object JsonUtils {
                 }
                 val glRadius = (dist / SCALING_FACTOR).toFloat()
 
-                // Speed Math: Use orbital_period (in days)
+                // Speed Math
                 val period = planet.optDouble("orbital_period", 365.0)
                 val glSpeed = if (period != 0.0) (40.0f / period).toFloat() else 0f
 
-                // Size Math
-                val diameter = planet.optDouble("diameter", 12000.0)
-                val glSize = (diameter / 100000.0).toFloat().coerceAtLeast(0.015f)
+                // Size Math - Extract diameter from JSON
+                val diameter = planet.optDouble("diameter", 10000.0)
+                val glSize = (kotlin.math.sqrt(diameter) / 2500.0).toFloat()
+                val boosted = glSize * (if (i < 4) 1.2f else 1.0f)
+                val finalSize = boosted.coerceIn(0.012f, 0.085f)
 
                 val startPhase = (Math.random() * Math.PI * 2).toFloat()
 
@@ -44,10 +48,10 @@ object JsonUtils {
                 val colorHex = planet.optString("color_dark", planet.optString("color", "#FFFFFF"))
                 val colorInt = try { Color.parseColor(colorHex) } catch (e: Exception) { Color.GRAY }
 
-                val offset = i * FLOATS_PER_PLANET
+                // Assignments using the now-defined offset
                 result[offset + 0] = glRadius
                 result[offset + 1] = glSpeed
-                result[offset + 2] = glSize
+                result[offset + 2] = finalSize
                 result[offset + 3] = startPhase
                 result[offset + 4] = Color.red(colorInt) / 255f
                 result[offset + 5] = Color.green(colorInt) / 255f

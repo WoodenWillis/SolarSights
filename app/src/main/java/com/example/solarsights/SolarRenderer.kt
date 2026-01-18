@@ -71,6 +71,8 @@ class SolarRenderer(private val context: Context) : GLSurfaceView.Renderer {
         GLES32.glUseProgram(ringProgramId)
         GLES32.glUniform1f(GLES32.glGetUniformLocation(ringProgramId, "u_Aspect"), aspect)
         GLES32.glUniform1f(GLES32.glGetUniformLocation(ringProgramId, "u_Offset"), parallaxOffset)
+        GLES32.glUniform2f(GLES32.glGetUniformLocation(ringProgramId, "u_Center"), 0.0f, -1.35f)
+
         renderInstances(false)
 
         // PASS 2: PLANETS
@@ -78,6 +80,8 @@ class SolarRenderer(private val context: Context) : GLSurfaceView.Renderer {
         GLES32.glUniform1f(GLES32.glGetUniformLocation(planetProgramId, "u_Time"), time)
         GLES32.glUniform1f(GLES32.glGetUniformLocation(planetProgramId, "u_Aspect"), aspect)
         GLES32.glUniform1f(GLES32.glGetUniformLocation(planetProgramId, "u_Offset"), parallaxOffset)
+        GLES32.glUniform2f(GLES32.glGetUniformLocation(planetProgramId, "u_Center"), 0.0f, -1.35f)
+
         renderInstances(true)
     }
 
