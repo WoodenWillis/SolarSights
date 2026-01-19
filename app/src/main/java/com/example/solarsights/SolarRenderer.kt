@@ -22,7 +22,7 @@ class SolarRenderer(private val context: Context) : GLSurfaceView.Renderer {
 
     private val vboIds = IntArray(2) // 0: Quad geometry, 1: Instance data
     private var instanceCount = 0
-    private val STRIDE_BYTES = JsonUtils.FLOATS_PER_PLANET * 4
+    private val STRIDE_BYTES = JsonUtils.FLOATS_PER_PLANET * 4 // now 64
 
     override fun onSurfaceCreated(gl: GL10?, config: EGLConfig?) {
         GLES32.glClearColor(0.0f, 0.0f, 0.05f, 1.0f)
@@ -71,7 +71,7 @@ class SolarRenderer(private val context: Context) : GLSurfaceView.Renderer {
         GLES32.glUseProgram(ringProgramId)
         GLES32.glUniform1f(GLES32.glGetUniformLocation(ringProgramId, "u_Aspect"), aspect)
         GLES32.glUniform1f(GLES32.glGetUniformLocation(ringProgramId, "u_Offset"), parallaxOffset)
-        GLES32.glUniform2f(GLES32.glGetUniformLocation(ringProgramId, "u_Center"), 0.0f, -1.35f)
+        GLES32.glUniform2f(GLES32.glGetUniformLocation(ringProgramId, "u_Center"), 0.0f, 0.0f)
 
         renderInstances(false)
 
@@ -80,7 +80,7 @@ class SolarRenderer(private val context: Context) : GLSurfaceView.Renderer {
         GLES32.glUniform1f(GLES32.glGetUniformLocation(planetProgramId, "u_Time"), time)
         GLES32.glUniform1f(GLES32.glGetUniformLocation(planetProgramId, "u_Aspect"), aspect)
         GLES32.glUniform1f(GLES32.glGetUniformLocation(planetProgramId, "u_Offset"), parallaxOffset)
-        GLES32.glUniform2f(GLES32.glGetUniformLocation(planetProgramId, "u_Center"), 0.0f, -1.35f)
+        GLES32.glUniform2f(GLES32.glGetUniformLocation(planetProgramId, "u_Center"), 0.0f, 0.0f)
 
         renderInstances(true)
     }
@@ -91,26 +91,30 @@ class SolarRenderer(private val context: Context) : GLSurfaceView.Renderer {
 
         // Bind Quad
         GLES32.glBindBuffer(GLES32.GL_ARRAY_BUFFER, vboIds[0])
-        GLES32.glEnableVertexAttribArray(0)
-        GLES32.glVertexAttribPointer(0, 2, GLES32.GL_FLOAT, false, 0, 0)
-
-        // Bind Planet Data
-        GLES32.glBindBuffer(GLES32.GL_ARRAY_BUFFER, vboIds[1])
         GLES32.glEnableVertexAttribArray(1)
         GLES32.glVertexAttribPointer(1, 4, GLES32.GL_FLOAT, false, STRIDE_BYTES, 0)
         GLES32.glVertexAttribDivisor(1, 1)
 
+        // Bind Planet Data
+        GLES32.glBindBuffer(GLES32.GL_ARRAY_BUFFER, vboIds[1])
+        GLES32.glEnableVertexAttribArray(2)
+        GLES32.glVertexAttribPointer(2, 4, GLES32.GL_FLOAT, false, STRIDE_BYTES, 16)
+        GLES32.glVertexAttribDivisor(2, 1)
+
+
         if (useColors) {
-            GLES32.glEnableVertexAttribArray(2)
-            GLES32.glVertexAttribPointer(2, 4, GLES32.GL_FLOAT, false, STRIDE_BYTES, 16) // Offset by 4 floats
-            GLES32.glVertexAttribDivisor(2, 1)
+            GLES32.glEnableVertexAttribArray(3)
+            GLES32.glVertexAttribPointer(3, 4, GLES32.GL_FLOAT, false, STRIDE_BYTES, 32)
+            GLES32.glVertexAttribDivisor(3, 1)
         }
+        GLES32.glEnableVertexAttribArray(4)
+        GLES32.glVertexAttribPointer(4, 4, GLES32.GL_FLOAT, false, STRIDE_BYTES, 48)
+        GLES32.glVertexAttribDivisor(4, 1)
 
-        GLES32.glDrawArraysInstanced(GLES32.GL_TRIANGLE_STRIP, 0, 4, instanceCount)
-
-        GLES32.glDisableVertexAttribArray(0)
         GLES32.glDisableVertexAttribArray(1)
         GLES32.glDisableVertexAttribArray(2)
+        GLES32.glDisableVertexAttribArray(3)
+        GLES32.glDisableVertexAttribArray(4)
         GLES32.glBindBuffer(GLES32.GL_ARRAY_BUFFER, 0)
         GLES32.glDisable(GLES32.GL_BLEND)
     }

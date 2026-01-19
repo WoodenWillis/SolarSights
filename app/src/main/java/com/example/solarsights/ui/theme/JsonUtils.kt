@@ -7,11 +7,22 @@ import android.util.Log
 import org.json.JSONArray
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import org.json.JSONObject
 
 object JsonUtils {
-    const val FLOATS_PER_PLANET = 8
+    const val FLOATS_PER_PLANET = 16
     // Adjust this: Higher = Planets closer to center. Lower = Planets farther out.
     private const val SCALING_FACTOR = 300.0f
+    private fun elem(planet: JSONObject, key: String, field: String, fallback: Double): Double {
+        val obj = planet.optJSONObject(key) ?: return fallback
+        return obj.optDouble(field, fallback)
+    }
+
+    private fun elemValue(planet: JSONObject, key: String, fallback: Double = Double.NaN): Double =
+        elem(planet, key, "value", fallback)
+
+    private fun elemVariation(planet: JSONObject, key: String, fallback: Double = Double.NaN): Double =
+        elem(planet, key, "variation", fallback)
 
     fun loadPlanetsToFloatArray(context: Context): FloatArray {
         return try {
@@ -21,10 +32,16 @@ object JsonUtils {
 
             for (i in 0 until jsonArray.length()) {
                 val planet = jsonArray.getJSONObject(i)
-                // 1. Define offset at the start of the loop
                 val offset = i * FLOATS_PER_PLANET
 
-                // Radius Math
+// 1. Calculate finalSize
+// Use the "mean_radius" from JSON, or "radius", or a fallback.
+                val physicalRadius = planet.optDouble("mean_radius",
+                    planet.optDouble("radius", 5000.0))
+// Apply some scaling so planets aren't microscopic or filling the screen
+                val finalSize = (physicalRadius / 20000.0).toFloat().coerceIn(0.05f, 0.5f)
+
+// 2. Radius Math (Existing)
                 val dist = if (planet.has("perihelion")) {
                     (planet.optDouble("perihelion") + planet.optDouble("aphelion")) / 2.0
                 } else {
@@ -32,17 +49,29 @@ object JsonUtils {
                 }
                 val glRadius = (dist / SCALING_FACTOR).toFloat()
 
+
                 // Speed Math
-                val period = planet.optDouble("orbital_period", 365.0)
-                val glSpeed = if (period != 0.0) (40.0f / period).toFloat() else 0f
+                // Speed + Phase from mean_anomaly (falls back to orbital_period/random)
+                val meanAnomalyDeg = elemValue(planet, "mean_anomaly", Double.NaN)
+                val meanMotionDegPerDay = elemVariation(planet, "mean_anomaly", Double.NaN)
 
-                // Size Math - Extract diameter from JSON
-                val diameter = planet.optDouble("diameter", 10000.0)
-                val glSize = (kotlin.math.sqrt(diameter) / 2500.0).toFloat()
-                val boosted = glSize * (if (i < 4) 1.2f else 1.0f)
-                val finalSize = boosted.coerceIn(0.012f, 0.085f)
+// Keep your existing "feel": old code roughly implies ~6.366 days/sec
+                val daysPerSecond = 40.0 / (2.0 * Math.PI)
 
-                val startPhase = (Math.random() * Math.PI * 2).toFloat()
+                val glSpeed = if (!meanMotionDegPerDay.isNaN()) {
+                    // convert deg/day -> rad/day -> rad/sec (in our accelerated time scale)
+                    (Math.toRadians(meanMotionDegPerDay) * daysPerSecond).toFloat()
+                } else {
+                    val period = planet.optDouble("orbital_period", 365.0)
+                    if (period != 0.0) (40.0f / period).toFloat() else 0f
+                }
+
+                val startPhase = if (!meanAnomalyDeg.isNaN()) {
+                    Math.toRadians(meanAnomalyDeg).toFloat()
+                } else {
+                    (Math.random() * Math.PI * 2.0).toFloat()
+                }
+
 
                 // Color Parsing
                 val colorHex = planet.optString("color_dark", planet.optString("color", "#FFFFFF"))

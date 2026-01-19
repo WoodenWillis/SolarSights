@@ -1,70 +1,50 @@
 #version 320 es
-#define PLANETS 9
+precision highp float;
 
-uniform mat4 u_viewMatrix;
-uniform mat4 u_projectionMatrix;
-uniform mat4 u_normalMatrix;
-uniform mat4 u_light;
-uniform mat4 u_transform[PLANETS];
+// Matches SolarRenderer.kt attribute setup:
+// location 0: quad position (vec2)
+// location 1: orbit params (vec4) = (radius, speed, size, phase)
+// location 2: color (vec4)
+layout(location = 0) in vec2 a_Position;
+layout(location = 1) in vec4 a_OrbitParams;
+layout(location = 2) in vec4 a_Color;
 
-uniform vec4 u_color_dark[PLANETS];
-uniform vec4 u_color_light[PLANETS];
+uniform float u_Time;
+uniform float u_Aspect;
+uniform float u_Offset;
+uniform vec2  u_Center;
 
-in vec3 a_position;
-in vec3 a_normal;
-in vec2 a_texCoord0;
-
-out vec3 v_normal;
-out vec2 uv;
-out vec2 v_inPlanet;
-out vec3 v_color_dark;
-out vec3 v_color_light;
-
+out vec2 v_Local;
+out vec4 v_Color;
+out vec2 v_ToSun;
 
 void main() {
+    float radius = a_OrbitParams.x;
+    float speed  = a_OrbitParams.y;   // radians/sec in our accelerated time scale
+    float size   = a_OrbitParams.z;
+    float phase  = a_OrbitParams.w;
 
-    // Even though we are using the transposed inverted ViewMatrix, set the 4th component to 0
-    // since translation shouldn't modify a vector (it should only modify a point).
+    float ang = phase + u_Time * speed;
 
+    vec2 orbit = vec2(cos(ang), sin(ang)) * radius;
 
-    vec4 planeNormal =  u_transform[gl_InstanceID] * vec4(0.1, 0.1, 0.1, 0.);
-    v_normal = normalize(u_normalMatrix * vec4(1,0,0, 0.)).xyz;
-    uv = (a_texCoord0 );
+    // Same tilt feel as your orbit rings
+    float tilt = radians(35.0);
+    float tiltSin = sin(tilt);
+    vec2 orbitView = vec2(orbit.x, orbit.y * tiltSin);
 
+    vec2 center = u_Center + vec2(u_Offset, 0.0);
+    vec2 planetCenter = center + orbitView;
 
-    mat4 modelView = u_viewMatrix  *  u_transform[gl_InstanceID];
-    float scale = modelView[1][1];
-    // First colunm.
-    modelView[0][0] = scale;
-    modelView[0][1] = 0.0;
-    modelView[0][2] = 0.0;
+    vec2 quad = a_Position * size;
 
+    gl_Position = vec4(planetCenter + quad, 0.0, 1.0);
 
-    // Second colunm.
-    modelView[1][0] = 0.0;
-    modelView[1][1] = scale;
-    modelView[1][2] = 0.0;
+    v_Local = a_Position;
+    v_Color = a_Color;
 
-
-    // Thrid colunm.
-    modelView[2][0] = 0.0;
-    modelView[2][1] = 0.0;
-    modelView[2][2] = scale;
-
-    vec4 p =  u_projectionMatrix * modelView * vec4(a_position.xyz, 1.);
-
-
-
-    v_inPlanet = (( (p.xyz / p.w).xy + 1.0) / 2.0);
-
-    v_color_light = u_color_light[gl_InstanceID].rgb;
-    v_color_dark = u_color_dark[gl_InstanceID].rgb;
-
-
-
-
-
-    //v_color_light= v_color_dark = planeNormal.xyz;
-    gl_Position = p;
-
+    // Light comes from the "sun" at orbit center, so direction planet->sun is -orbit
+    vec2 toSun = -orbitView;
+    float len2 = dot(toSun, toSun);
+    v_ToSun = (len2 > 1e-6) ? normalize(toSun) : vec2(0.0, 1.0);
 }

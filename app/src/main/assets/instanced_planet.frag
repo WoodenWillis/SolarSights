@@ -1,53 +1,42 @@
 #version 320 es
-
 precision highp float;
 
-uniform sampler2D u_texture;
-uniform sampler2D u_occlusionTexture;
+uniform float u_Aspect;
 
-uniform float u_opacity;
-uniform float u_radius;
-uniform vec3 u_light;
-uniform float u_aod;
-
-in vec3 v_normal;
-in vec2 uv;
-in vec2 v_inPlanet;
-in vec3 v_color_dark;
-in vec3 v_color_light;
+in vec2 v_Local;
+in vec4 v_Color;
+in vec2 v_ToSun;
 
 out vec4 fragColor;
 
-
-
-float circle(in vec2 _st, in float _radius){
-    vec2 dist = _st-vec2(0.5);
-    return 1.-smoothstep(_radius-(_radius*0.01),
-    _radius+(_radius*0.01),
-    dot(dist,dist)*4.0);
-}
-
 void main() {
+    // Aspect-correct local coords so the disc is circular in screen space
+    vec2 p = vec2(v_Local.x * u_Aspect, v_Local.y);
+    float r2 = dot(p, p);
+    if (r2 > 1.0) discard;
 
-    if (circle(uv,0.9) == 0.0) discard;
+    float r = sqrt(r2);
 
-    vec3 N = normalize(v_normal);
-    // Check http://www.lighthouse3d.com/tutorials/glsl-12-tutorial/directional-lights-ii/
-    vec3 L = normalize(u_light);
+    // Analytic AA edge
+    float aa = fwidth(r);
+    float alpha = 1.0 - smoothstep(1.0 - aa, 1.0 + aa, r);
 
-    float lightDotProduct = dot(-L, N);
-    vec3 tex = texture( u_texture, uv ).rgb;
-    vec3 lambertian = clamp(lightDotProduct * tex, 0., 1.);
+    // Sphere normal from disc coords
+    float z = sqrt(max(0.0, 1.0 - r2));
+    vec3 n = normalize(vec3(p, z));
 
-    vec3 color = mix(v_color_dark, v_color_light, lambertian);
+    // Light direction (slight forward bias for a soft terminator)
+    vec3 l = normalize(vec3(v_ToSun, 0.35));
 
-    vec3 occlusion = 1.0 - texture(u_occlusionTexture, v_inPlanet).rgb;
+    float ndotl = max(dot(n, l), 0.0);
 
-    color *= occlusion;
+    vec3 base = v_Color.rgb;
+    vec3 lit  = mix(base, vec3(1.0), 0.35);
 
+    float diffuse = smoothstep(0.0, 1.0, ndotl);
+    float rim = pow(1.0 - z, 2.0) * 0.18;
 
+    vec3 color = mix(base, lit, diffuse) + rim;
 
-
-    fragColor = vec4(color.rgb , 1.0 - u_aod);
-    //fragColor = vec4(v_normal, 1.);
+    fragColor = vec4(color, v_Color.a * alpha);
 }
