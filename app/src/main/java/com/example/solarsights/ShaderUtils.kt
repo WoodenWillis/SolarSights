@@ -23,6 +23,12 @@ object ShaderUtils {
         if (program != 0) {
             GLES32.glAttachShader(program, vertexShader)
             GLES32.glAttachShader(program, fragmentShader)
+
+            // Bind attribute locations BEFORE linking
+            GLES32.glBindAttribLocation(program, 0, "a_Position")
+            GLES32.glBindAttribLocation(program, 1, "a_OrbitParams")
+            GLES32.glBindAttribLocation(program, 2, "a_Color")
+
             GLES32.glLinkProgram(program)
 
             val linkStatus = IntArray(1)

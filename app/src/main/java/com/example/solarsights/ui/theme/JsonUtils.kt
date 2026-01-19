@@ -12,7 +12,7 @@ import org.json.JSONObject
 object JsonUtils {
     const val FLOATS_PER_PLANET = 16
     // Adjust this: Higher = Planets closer to center. Lower = Planets farther out.
-    private const val SCALING_FACTOR = 300.0f
+    private const val SCALING_FACTOR = 200.0f
     private fun elem(planet: JSONObject, key: String, field: String, fallback: Double): Double {
         val obj = planet.optJSONObject(key) ?: return fallback
         return obj.optDouble(field, fallback)
@@ -38,9 +38,7 @@ object JsonUtils {
 // Use the "mean_radius" from JSON, or "radius", or a fallback.
                 val physicalRadius = planet.optDouble("mean_radius",
                     planet.optDouble("radius", 5000.0))
-// Apply some scaling so planets aren't microscopic or filling the screen
-                val finalSize = (physicalRadius / 20000.0).toFloat().coerceIn(0.05f, 0.5f)
-
+                val finalSize = (physicalRadius / 200000.0).toFloat().coerceIn(0.005f, 0.05f)
 // 2. Radius Math (Existing)
                 val dist = if (planet.has("perihelion")) {
                     (planet.optDouble("perihelion") + planet.optDouble("aphelion")) / 2.0
