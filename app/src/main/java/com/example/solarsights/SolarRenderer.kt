@@ -128,13 +128,23 @@ private val STRIDE_BYTES = JsonUtils.FLOATS_PER_PLANET * 4 // now 64
 
         // PASS 2: PLANETS
         GLES32.glUseProgram(planetProgramId)
+
         GLES32.glUniform1f(GLES32.glGetUniformLocation(planetProgramId, "u_Time"), time)
-        GLES32.glUniform1f(GLES32.glGetUniformLocation(planetProgramId, "u_Aspect"), aspect)
-        GLES32.glUniform1f(GLES32.glGetUniformLocation(planetProgramId, "u_Offset"), parallaxOffset)
-        GLES32.glUniform2f(GLES32.glGetUniformLocation(planetProgramId, "u_Center"), 0.0f, 0.0f)
+
+        val vpLoc = GLES32.glGetUniformLocation(planetProgramId, "u_ViewProj")
+        GLES32.glUniformMatrix4fv(vpLoc, 1, false, viewProj, 0)
+
+        val rLoc = GLES32.glGetUniformLocation(planetProgramId, "u_CamRight")
+        GLES32.glUniform3f(rLoc, camRight[0], camRight[1], camRight[2])
+
+        val uLoc = GLES32.glGetUniformLocation(planetProgramId, "u_CamUp")
+        GLES32.glUniform3f(uLoc, camUp[0], camUp[1], camUp[2])
+
+        val tiltLoc = GLES32.glGetUniformLocation(planetProgramId, "u_Tilt")
+        GLES32.glUniform1f(tiltLoc, Math.toRadians(35.0).toFloat())
 
         renderInstances(true)
-    }
+
 
     private fun renderInstances(useColors: Boolean) {
         GLES32.glEnable(GLES32.GL_BLEND)
