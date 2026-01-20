@@ -98,7 +98,26 @@ private val STRIDE_BYTES = JsonUtils.FLOATS_PER_PLANET * 4 // now 64
         if (planetProgramId == 0 || instanceCount == 0) return
 
         val time = (System.nanoTime() - startTime) / 1_000_000_000f
+        // Camera drift (matches the idea in SolarSystem.smali)
+        val driftSpeed = 0.35f      // tune; smali reads from config
+        val driftAmp = 0.15f        // tune; smali reads from config
 
+        val driftX = kotlin.math.sin(time * driftSpeed) * driftAmp
+        val driftY = kotlin.math.cos(time * driftSpeed * 0.7f) * driftAmp * 0.6f
+
+
+        Matrix.setLookAtM(
+        view, 0,
+        driftX, driftY, camZ,
+        0f, 0f, 0f,
+        0f, 1f, 0f
+        )
+   
+        Matrix.multiplyMM(viewProj, 0, proj, 0, view, 0)
+
+        camRight[0] = view[0]; camRight[1] = view[4]; camRight[2] = view[8]
+        camUp[0]    = view[1]; camUp[1]    = view[5]; camUp[2]    = view[9]
+        
         // PASS 1: RINGS
         GLES32.glUseProgram(ringProgramId)
         GLES32.glUniform1f(GLES32.glGetUniformLocation(ringProgramId, "u_Aspect"), aspect)
