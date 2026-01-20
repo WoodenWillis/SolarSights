@@ -1,7 +1,6 @@
 #version 320 es
 precision highp float;
 
-// Remove layout(location = ...) - let OpenGL assign locations
 in vec2 a_Position;
 in vec4 a_OrbitParams;
 in vec4 a_Color;
@@ -32,6 +31,7 @@ void main() {
     vec2 planetCenter = center + orbitView;
 
     vec2 quad = a_Position * size;
+    quad.y *= tiltSin;  // ✅ Apply tilt to the planet billboard too!
 
     gl_Position = vec4(planetCenter + quad, 0.0, 1.0);
 

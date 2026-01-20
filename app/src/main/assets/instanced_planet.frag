@@ -1,22 +1,15 @@
 #version 320 es
 precision highp float;
 
-uniform float u_Aspect;
-
 in vec2 v_Local;
 in vec4 v_Color;
 in vec2 v_ToSun;
-uniform vec3 u_light;
+
 out vec4 fragColor;
 
 void main() {
-    // Aspect-correct local coords so the disc is circular in screen space
     vec2 p = v_Local.xy;
-    vec2 quad = a_Position * size;
-    quad.y *= tiltSin;
     float r2 = dot(p, p);
-
-    gl_Position = vec4(planetCenter + quad, 0.0, 1.0);
 
     if (r2 > 1.0) discard;
 
