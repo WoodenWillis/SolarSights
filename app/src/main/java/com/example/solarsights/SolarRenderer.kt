@@ -11,7 +11,17 @@ import java.nio.ByteOrder
 import java.nio.FloatBuffer
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
+import android.opengl.Matrix
 
+    private val view = FloatArray(16)
+    private val proj = FloatArray(16)
+    private val viewProj = FloatArray(16)
+// Camera basis vectors (world-space), used for billboards
+    private val camRight = FloatArray(3)
+    private val camUp = FloatArray(3)
+// Camera params (tune later)
+    private var camZ = 6.0f
+    private var fovY = 40.0f
 class SolarRenderer(private val context: Context) : GLSurfaceView.Renderer {
 
     private var planetProgramId: Int = 0
@@ -23,7 +33,6 @@ class SolarRenderer(private val context: Context) : GLSurfaceView.Renderer {
     private val vboIds = IntArray(2) // 0: Quad geometry, 1: Instance data
     private var instanceCount = 0
     private val STRIDE_BYTES = JsonUtils.FLOATS_PER_PLANET * 4 // now 64
-
     override fun onSurfaceCreated(gl: GL10?, config: EGLConfig?) {
         GLES32.glClearColor(0.0f, 0.0f, 0.05f, 1.0f)
 
