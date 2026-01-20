@@ -13,36 +13,37 @@ import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 import android.opengl.Matrix
 
-    private val view = FloatArray(16)
-    private val proj = FloatArray(16)
-    private val viewProj = FloatArray(16)
+private val view = FloatArray(16)
+private val proj = FloatArray(16)
+private val viewProj = FloatArray(16)
 // Camera basis vectors (world-space), used for billboards
-    private val camRight = FloatArray(3)
-    private val camUp = FloatArray(3)
+private val camRight = FloatArray(3)
+private val camUp = FloatArray(3)
 // Camera params (tune later)
-    private var camZ = 6.0f
-    private var fovY = 40.0f
+private var camZ = 6.0f
+private var fovY = 40.0f
+    
 class SolarRenderer(private val context: Context) : GLSurfaceView.Renderer {
 
-    private var planetProgramId: Int = 0
-    private var ringProgramId: Int = 0
-    private var aspect: Float = 1.0f
-    private var startTime = System.nanoTime()
-    private var parallaxOffset: Float = 0f
+private var planetProgramId: Int = 0
+private var ringProgramId: Int = 0
+private var aspect: Float = 1.0f
+private var startTime = System.nanoTime()
+private var parallaxOffset: Float = 0f
 
-    private val vboIds = IntArray(2) // 0: Quad geometry, 1: Instance data
-    private var instanceCount = 0
-    private val STRIDE_BYTES = JsonUtils.FLOATS_PER_PLANET * 4 // now 64
-    override fun onSurfaceCreated(gl: GL10?, config: EGLConfig?) {
-        GLES32.glClearColor(0.0f, 0.0f, 0.05f, 1.0f)
+private val vboIds = IntArray(2) // 0: Quad geometry, 1: Instance data
+private var instanceCount = 0
+private val STRIDE_BYTES = JsonUtils.FLOATS_PER_PLANET * 4 // now 64
+   
+    override fun onSurfaceChanged(gl: GL10?, width: Int, height: Int) {
+    GLES32.glViewport(0, 0, width, height)
+    aspect = width.toFloat() / height.toFloat()
 
-        try {
-            planetProgramId =
-                ShaderUtils.createProgram(context, "instanced_planet.vert", "instanced_planet.frag")
-            ringProgramId = ShaderUtils.createProgram(context, "orbit_ring.vert", "orbit_ring.frag")
-        } catch (e: Exception) {
-            Log.e("SolarRenderer", "Shader Error: ${e.message}")
-        }
+        val near = 0.1f
+        val far = 100.0f
+    Matrix.perspectiveM(proj, 0, fovY, aspect, near, far)
+    }
+
 
         // 1. Setup VBO for Quad Geometry
         val quadCoords = floatArrayOf(-1f, -1f, 1f, -1f, -1f, 1f, 1f, 1f)
