@@ -6,10 +6,6 @@ import android.util.Log
 
 object ShaderUtils {
     private const val TAG = "ShaderUtils"
-
-    /**
-     * Loads, compiles, and links a vertex and fragment shader into a program.
-     */
     fun createProgram(context: Context, vertexPath: String, fragmentPath: String): Int {
         val vertexSource = loadShaderSource(context, vertexPath)
         val fragmentSource = loadShaderSource(context, fragmentPath)
